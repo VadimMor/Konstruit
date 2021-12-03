@@ -26,6 +26,9 @@ html,body{
 	-webkit-text-size-adjust: 100%;
 	font-family: 'Open Sans', sans-serif;
 }
+body {
+	overflow-x: hidden;
+}
 input,button,textarea{font-family:inherit;}
 
 input::-ms-clear{display: none;}
@@ -63,6 +66,11 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 	margin: 0 auto;
 }
 /*--------------------*/
+
+/*CONST*/
+.anim-items {
+	position: relative;
+}
 
 
 /*INTRO*/
@@ -165,8 +173,6 @@ header {
 
 	border-bottom: 1px solid #e6e6e6;
 	background: #fff;
-
-	pos
 }
 .header__inner {
 	display: flex;
@@ -360,18 +366,36 @@ header {
 .about__images {
 	display: flex;
 	width: 48.8%;
-
-	position: relative;
+	
 	justify-content: space-between;
 }
 .about__image {
 	margin-top: 30px;
+
+	position: relative;
+
+	opacity: 0;
+
+	transform: translateX(240%);
+}
+.about__image:nth-child(1) {
+	transition:  all 1s ease 0s;
+}
+.about__image:nth-child(2) {
+	transition:  all 1.7s ease 0s;
+}
+.about__image:nth-child(3) {
+	transition:  all 2.4s ease 0s;
+}
+.about__image._active {
+	opacity: 1;
+
+	transform: translateX(0%);
 }
 .about__imgtitle {
-	margin-left: 16px;
-
 	position: absolute;
-	top: 49px;
+	top: 25px;
+	left: 16px;
 	z-index: 1;
 
 	line-height: 1.15em;
@@ -454,14 +478,29 @@ header {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin-top: 76px;
+
 }
 .service__item {
 	width: 31.3%;
 	padding: 38px 23px 36px 21px;
 
 	border: 1px solid #e6e6e6;
+	opacity: 0;
 
 	color: #48555B;
+
+	transition:  all 1.5s ease 0s;
+}
+.service__item:nth-child(1) {
+	transform: translateX(-120%);
+}
+.service__item:nth-child(3) {
+	transform: translateX(120%);
+}
+.service__item._active {
+	opacity: 1;
+
+	transform: translateX(0%);
 }
 .service__img {
 	margin-bottom: 25px;
